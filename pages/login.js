@@ -22,6 +22,7 @@ export default function Login() {
   const { userInfo } = state;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   if (userInfo) {
     router.push("/");
   }
@@ -34,7 +35,7 @@ export default function Login() {
         password,
       });
       dispatch({ type: "USER_LOGIN", payload: data });
-      Cookies.set("userInfo", data);
+      Cookies.set("userInfo", JSON.stringify(data));
       router.push(redirect || "/");
     } catch (err) {
       alert(err.response.data ? err.response.data.message : err.message);
