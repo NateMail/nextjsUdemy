@@ -60,7 +60,7 @@ function CartScreen() {
         </div>
       ) : (
         <Grid container spacing={1}>
-          <Grid item md={9} xs={12}>
+          <Grid item={true} md={9} xs={12}>
             <TableContainer>
               <Table>
                 <TableHead>
@@ -124,7 +124,7 @@ function CartScreen() {
               </Table>
             </TableContainer>
           </Grid>
-          <Grid md={3} xs={12}>
+          <Grid item={true} md={3} xs={12}>
             <Card>
               <List>
                 <ListItem variant="h2">

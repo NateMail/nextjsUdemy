@@ -51,7 +51,7 @@ export default function ProductScreen(props) {
         </NextLink>
       </div>
       <Grid container spacing={1}>
-        <Grid item md={6} xs={12}>
+        <Grid item={true} md={6} xs={12}>
           <Image
             src={product.image}
             alt={product.name}
@@ -60,7 +60,7 @@ export default function ProductScreen(props) {
             layout="responsive"
           ></Image>
         </Grid>
-        <Grid item md={3} xs={12}>
+        <Grid item={true} md={3} xs={12}>
           <List>
             <ListItem>
               <Typography component="h1" variant="h1">
@@ -83,25 +83,25 @@ export default function ProductScreen(props) {
             </ListItem>
           </List>
         </Grid>
-        <Grid item md={3} xs={12}>
+        <Grid item={true} md={3} xs={12}>
           <Card>
             <List>
               <ListItem>
                 <Grid container>
-                  <Grid item xs={6}>
+                  <Grid item={true} xs={6}>
                     <Typography>Price</Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item={true} xs={6}>
                     <Typography>${product.price}</Typography>
                   </Grid>
                 </Grid>
               </ListItem>
               <ListItem>
                 <Grid container>
-                  <Grid item xs={6}>
+                  <Grid item={true} xs={6}>
                     <Typography>Status</Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item={true} xs={6}>
                     <Typography>
                       {product.countInStock > 0 ? "In Stock" : "Unavailable"}
                     </Typography>

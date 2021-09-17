@@ -98,7 +98,6 @@ export default function Layout({ title, children, description }) {
               ></Switch>
               <NextLink href="/cart" passHref>
                 <Link>
-                  {" "}
                   {cart.cartItems.length > 0 ? (
                     <Badge
                       color="secondary"
