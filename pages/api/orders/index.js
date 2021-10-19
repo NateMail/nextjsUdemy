@@ -1,13 +1,12 @@
-import db from "../../../utils/db";
 import nc from "next-connect";
 import Order from "../../../models/Order";
-import onError from "../../../utils/error";
-import isAuth from "../../../utils/auth";
+import { isAuth } from "../../../utils/auth";
+import db from "../../../utils/db";
+import { onError } from "../../../utils/error";
 
 const handler = nc({
   onError,
 });
-
 handler.use(isAuth);
 
 handler.post(async (req, res) => {
@@ -16,8 +15,9 @@ handler.post(async (req, res) => {
     ...req.body,
     user: req.user._id,
   });
+
   const order = await newOrder.save();
-  res.statusCode(201).send(order);
+  res.status(201).send(order);
 });
 
 export default handler;
