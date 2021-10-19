@@ -72,6 +72,8 @@ export default function Layout({ title, children, description }) {
     dispatch({ type: "USER_LOGOUT" });
     Cookies.remove("userInfo");
     Cookies.remove("cartItems");
+    Cookies.remove("shippingAddress");
+    Cookies.remove("paymentMethod");
     router.push("/");
   };
 
@@ -98,7 +100,7 @@ export default function Layout({ title, children, description }) {
               ></Switch>
               <NextLink href="/cart" passHref>
                 <Link>
-                  {cart.cartItems.length > 0 ? (
+                  {!!cart.cartItems && cart.cartItems.length > 0 ? (
                     <Badge
                       color="secondary"
                       badgeContent={cart.cartItems.length}
