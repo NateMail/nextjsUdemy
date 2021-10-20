@@ -1,3 +1,2 @@
 ANY TIME A COOKIE IS USED WITH USER INFO YOU NEED TO PARSE THE COOKIE WITH JSON.PARSE 
-
-taxPrice and shippingPrice are not being sent through when an order it placed. 
+ 
