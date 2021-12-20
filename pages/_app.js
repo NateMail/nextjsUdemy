@@ -4,6 +4,11 @@ import { useEffect } from "react";
 import "../styles/globals.css";
 import { StoreProvider } from "../utils/Store";
 
+const initialOptions = {
+  "client-id": process.env.PAYPAL_CLIENT_ID,
+  currency: "USD",
+};
+
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
@@ -14,7 +19,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <SnackbarProvider anchorOrigin={{ vertical: "top", horizontal: "center" }}>
       <StoreProvider>
-        <PayPalScriptProvider deferLoading={true}>
+        <PayPalScriptProvider deferLoading={true} options={initialOptions}>
           <Component {...pageProps} />
         </PayPalScriptProvider>
       </StoreProvider>

@@ -106,7 +106,10 @@ function Order({ params }) {
         });
         paypalDispatch({
           type: "resetOptions",
-          value: { "client-id": clientId, currency: "USD" },
+          value: {
+            "client-id": clientId,
+            currency: "USD",
+          },
         });
         paypalDispatch({ type: "setLoadingStatus", value: "pending" });
       };
@@ -129,7 +132,7 @@ function Order({ params }) {
       try {
         dispatch({ type: "PAY_REQUEST" });
         const { data } = await axios.put(
-          `/api/order/${order._id}/pay`,
+          `/api/orders/${order._id}/pay`,
           details,
           {
             headers: { authorization: `Bearer ${userInfo.token}` },
