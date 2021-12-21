@@ -18,9 +18,10 @@ import { Store } from "../utils/Store";
 import { useRouter } from "next/router";
 
 export default function Home(props) {
-  const { products } = props;
   const router = useRouter();
-  const { dispatch, state } = useContext(Store);
+  const { products } = props;
+  const { state, dispatch } = useContext(Store);
+
   const addToCartHandler = async (product) => {
     const existItem = state.cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
@@ -29,10 +30,7 @@ export default function Home(props) {
       window.alert("Sorry. Product out of stock!");
       return;
     }
-    dispatch({
-      type: "CART_ADD_ITEM",
-      payload: { ...product, quantity },
-    });
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
     router.push("/cart");
   };
   return (
@@ -41,7 +39,7 @@ export default function Home(props) {
         <h1>Products</h1>
         <Grid container spacing={3}>
           {products.map((product) => (
-            <Grid item md={4} key={product.name}>
+            <Grid item md={4} key={product._id}>
               <Card>
                 <NextLink href={`/product/${product.slug}`} passHref>
                   <CardActionArea>
