@@ -20,6 +20,8 @@ import { getError } from "../../utils/error";
 import { Store } from "../../utils/Store";
 import Layout from "../../components/Layout";
 import useStyles from "../../utils/styles";
+// eslint-disable-next-line
+import Chart from "chart.js/auto";
 
 function reducer(state, action) {
   switch (action.type) {
