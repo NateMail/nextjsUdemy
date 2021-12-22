@@ -130,16 +130,34 @@ function AdminOrders() {
                             <TableCell>
                               {order.user ? order.user.name : "DELETED USER"}
                             </TableCell>
-                            <TableCell>{order.createdAt}</TableCell>
+                            <TableCell>{`${order.createdAt.slice(
+                              5,
+                              7
+                            )}/${order.createdAt.slice(
+                              8,
+                              10
+                            )}/${order.createdAt.slice(0, 4)}`}</TableCell>
                             <TableCell>${order.totalPrice}</TableCell>
                             <TableCell>
                               {order.isPaid
-                                ? `paid on ${order.paidAt}`
+                                ? `paid on ${order.paidAt.slice(
+                                    5,
+                                    7
+                                  )}/${order.paidAt.slice(
+                                    8,
+                                    10
+                                  )}/${order.paidAt.slice(0, 4)}`
                                 : "not paid"}
                             </TableCell>
                             <TableCell>
                               {order.isDelivered
-                                ? `delivered at ${order.deliveredAt}`
+                                ? `delivered on ${order.deliveredAt.slice(
+                                    5,
+                                    7
+                                  )}/${order.deliveredAt.slice(
+                                    8,
+                                    10
+                                  )}/${order.deliveredAt.slice(0, 4)}`
                                 : "not delivered"}
                             </TableCell>
                             <TableCell>

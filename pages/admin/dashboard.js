@@ -107,7 +107,7 @@ function AdminDashboard() {
                     <Grid item md={3}>
                       <Card raised>
                         <CardContent>
-                          <Typography variant="h3">
+                          <Typography variant="h4">
                             ${summary.ordersPrice}
                           </Typography>
                           <Typography>Sales</Typography>
@@ -124,7 +124,7 @@ function AdminDashboard() {
                     <Grid item md={3}>
                       <Card raised>
                         <CardContent>
-                          <Typography variant="h3">
+                          <Typography variant="h4">
                             {summary.ordersCount}
                           </Typography>
                           <Typography>Orders</Typography>
@@ -141,7 +141,7 @@ function AdminDashboard() {
                     <Grid item md={3}>
                       <Card raised>
                         <CardContent>
-                          <Typography variant="h3">
+                          <Typography variant="h4">
                             {summary.productsCount}
                           </Typography>
                           <Typography>Products</Typography>
@@ -158,7 +158,7 @@ function AdminDashboard() {
                     <Grid item md={3}>
                       <Card raised>
                         <CardContent>
-                          <Typography variant="h3">
+                          <Typography variant="h4">
                             {summary.usersCount}
                           </Typography>
                           <Typography>Users</Typography>

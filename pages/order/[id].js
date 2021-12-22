@@ -199,6 +199,14 @@ function Order({ params }) {
     }
   }
 
+  if (deliveredAt) {
+    console.log(
+      deliveredAt.slice(0, 4),
+      deliveredAt.slice(5, 7),
+      deliveredAt.slice(8, 10)
+    );
+  }
+
   return (
     <Layout title={`Order ${orderId}`}>
       <CheckoutWizard activeStep={3}></CheckoutWizard>
@@ -227,7 +235,10 @@ function Order({ params }) {
                 <ListItem>
                   Status:{" "}
                   {isDelivered
-                    ? `delivered at ${deliveredAt}`
+                    ? `delivered on ${deliveredAt.slice(
+                        5,
+                        7
+                      )}/${deliveredAt.slice(8, 10)}/${deliveredAt.slice(0, 4)}`
                     : "not delivered"}
                 </ListItem>
               </List>
@@ -241,7 +252,13 @@ function Order({ params }) {
                 </ListItem>
                 <ListItem>{paymentMethod}</ListItem>
                 <ListItem>
-                  Status: {isPaid ? `paid at ${paidAt}` : "not paid"}
+                  Status:{" "}
+                  {isPaid
+                    ? `paid on ${paidAt.slice(5, 7)}/${paidAt.slice(
+                        8,
+                        10
+                      )}/${paidAt.slice(0, 4)}`
+                    : "not paid"}
                 </ListItem>
               </List>
             </Card>
